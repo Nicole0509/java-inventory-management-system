@@ -18,6 +18,9 @@ public class Main {
         return expensiveItem;
     }
 
+    public static Item removeItem(ArrayList<Item> items, int index) {
+        return items.remove(index);
+    }
 
     public static void main(String[] args) {
 
@@ -28,9 +31,8 @@ public class Main {
         items.add(new Item(3,"Samsung", 5000,"Smartphones"));
         items.add(new Item(4,"Galaxy", 11000,"Smartphones"));
 
-        System.out.println("The most expensive item is " + getMostExpensiveItems(items));
+        System.out.println("\nThe most expensive item is " + getMostExpensiveItems(items));
 
-
-
+        System.out.println("\nRemoving " + removeItem(items,2));
     }
 }
