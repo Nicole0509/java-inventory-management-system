@@ -6,6 +6,14 @@ public class Main {
 
     static ArrayList<Item> items = new ArrayList<>();
 
+    public static void getAllItems(ArrayList<Item> items) {
+
+        System.out.println("\n A list of all items in the inventory");
+        for (Item item : items) {
+            System.out.println("\n" + item);
+        }
+    }
+
     public static Item getMostExpensiveItems(ArrayList<Item> items) {
         double temporaryPrice = 0;
         Item expensiveItem = null;
@@ -34,5 +42,8 @@ public class Main {
         System.out.println("\nThe most expensive item is " + getMostExpensiveItems(items));
 
         System.out.println("\nRemoving " + removeItem(items,2));
+
+        getAllItems(items);
+
     }
 }
