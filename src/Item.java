@@ -1,8 +1,10 @@
+import java.text.NumberFormat;
+
 public class Item {
-    private int itemId;
-    private String itemName;
-    private double itemPrice;
-    private String itemCategory;
+    public int itemId;
+    public String itemName;
+    public double itemPrice;
+    public String itemCategory;
 
     public Item(int itemId, String itemName, double itemPrice, String itemCategory) {
         this.itemId = itemId;
@@ -13,7 +15,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item: " + itemId + " is named " + itemName + " and costs " + itemPrice + ". It belongs to the " + itemCategory + " category.";
+        return "Item " + itemId + " named " + itemName + " and costs " + NumberFormat.getCurrencyInstance().format(itemPrice) + ".\nIt belongs to the " + itemCategory + " category.";
     }
 
 }

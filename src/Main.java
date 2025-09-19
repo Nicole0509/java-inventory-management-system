@@ -12,9 +12,17 @@ public class Main {
         items.add(new Item(1, "Lenovo", 10000, "Laptops"));
         items.add(new Item(2,"HP", 3000,"Laptops"));
 
+        double temporaryPrice = 0;
+        Item expensiveItem = null;
+
         for (Item item : items) {
-            System.out.println(item);
+            temporaryPrice = Math.max(temporaryPrice, item.itemPrice);
+            expensiveItem = item;
         }
+
+        System.out.println("The most expensive item is " + expensiveItem);
+
+
 
     }
 }
