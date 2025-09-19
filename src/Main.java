@@ -7,16 +7,14 @@ public class Main {
 
         System.out.println("Welcome To Your Inventory Management System\n");
 
-        ArrayList<String> items = new ArrayList<>();
+        ArrayList<Item> items = new ArrayList<>();
 
-        items.add("Sword");
-        items.add("Axe");
-        items.add("Pickaxe");
-        items.add("Shovel");
-        items.add("Hoe");
-        items.add("Pickaxe");
+        items.add(new Item(1, "Lenovo", 10000, "Laptops"));
+        items.add(new Item(2,"HP", 3000,"Laptops"));
 
-        System.out.println(items);
+        for (Item item : items) {
+            System.out.println(item);
+        }
 
     }
 }

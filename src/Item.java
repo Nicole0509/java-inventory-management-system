@@ -11,4 +11,9 @@ public class Item {
         this.itemCategory = itemCategory;
     }
 
+    @Override
+    public String toString() {
+        return "Item: " + itemId + " is named " + itemName + " and costs " + itemPrice + ". It belongs to the " + itemCategory + " category.";
+    }
+
 }
