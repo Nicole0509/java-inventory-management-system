@@ -31,15 +31,32 @@ public class Main {
                 addItem(items);
                 break;
             case 3:
-                itemId = scanner.nextInt();
-                removeItemById(items, itemId);
+                if(items.isEmpty()){
+
+                    System.out.println("There are no Items in the Inventory");
+                    System.out.println("You have nothing to remove");
+
+                } else {
+
+                    System.out.print("Enter Item ID of the Item you want to remove: ");
+                    itemId = scanner.nextInt();
+
+                    System.out.println(
+                            (removeItemById(items, itemId) != null)
+                            ? "Successfully removed item with ID " + itemId
+                            : "No item with ID " + itemId + " was found in the inventory "
+                    );
+
+                    System.out.println("You now have " + items.size() + " item(s) in your inventory!");
+                }
+
                 break;
             case 4:
                 if(items.isEmpty()) {
                     System.out.println("\nThere are no items in the inventory yet");
                     System.out.println("Please add an item");
                 } else {
-                    System.out.println("\nThe most expensive item " + getMostExpensiveItems(items) );
+                    System.out.println("\nThe most expensive " + getMostExpensiveItems(items) );
                 }
                 break;
             case 5:
@@ -103,14 +120,14 @@ public class Main {
     }
 
     public static Item removeItemById(ArrayList<Item> items, int itemId) {
-        int index = -1;
 
         for (Item item : items) {
             if (item.itemId == itemId) {
-                index = items.indexOf(item);
+                items.remove(item);
+                return item;
             }
         }
-        return items.remove(index);
+        return null;
     }
 
     public static void main(String[] args) {
