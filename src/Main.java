@@ -48,14 +48,13 @@ public class Main {
 
         System.out.println("Welcome To Your Inventory Management System\n");
 
-        addItem(items);
+        System.out.println("Pick a choice and Manage Your Inventory");
+        System.out.println("1. Get All Items");
+        System.out.println("2. Add Item");
+        System.out.println("3. Remove Item");
+        System.out.println("4. Get Most Expensive Item");
+        System.out.println("5. Exit");
 
-        System.out.println("\nThe most expensive item is " + getMostExpensiveItems(items));
 
-        getAllItems(items);
-
-        System.out.println("\nRemoving " + removeItemById(items,2));
-
-        getAllItems(items);
     }
 }
