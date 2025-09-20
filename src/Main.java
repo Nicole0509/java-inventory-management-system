@@ -7,6 +7,7 @@ public class Main {
 
     static ArrayList<Item> items = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
+    static int choice;
 
     public static void addItem(ArrayList<Item> items, int itemId, String itemName, double itemPrice, String itemCategory ) {
         items.add(new Item(itemId,itemName, itemPrice,itemCategory));
@@ -52,41 +53,50 @@ public class Main {
         System.out.println("4. Get Most Expensive Item");
         System.out.println("5. Exit");
 
-        int choice = 2;
+        do{
+            System.out.print("\nPlease choose an option: ");
+            choice = scanner.nextInt();
 
-        switch(choice) {
-            case 1:
-                if(items.isEmpty()) {
-                    System.out.println("There are no items in the inventory yet");
-                    System.out.println("Please add an item");
-                } else {
-                    System.out.println("\nA list of all items in the inventory");
-                    getAllItems(items);
-                }
-                break;
-            case 2:
-                System.out.println("\nPlease enter the item you want to add");
-                System.out.print("Enter the item ID:");
-                int itemId = scanner.nextInt();
-                System.out.print("Enter the item Name:");
-                String itemName = scanner.next();
-                System.out.print("Enter the item price:");
-                double itemPrice = scanner.nextDouble();
-                System.out.print("Enter the item category:");
-                String itemCategory = scanner.next();
+            switch(choice) {
+                case 1:
+                    if(items.isEmpty()) {
+                        System.out.println("\nThere are no items in the inventory yet");
+                        System.out.println("Please add an item");
+                    } else {
+                        System.out.println("\nA list of all items in the inventory");
+                        getAllItems(items);
+                    }
+                    break;
+                case 2:
+                    System.out.println("\nPlease enter the item you want to add");
+                    System.out.print("Enter the item ID: ");
+                    int itemId = scanner.nextInt();
+                    System.out.print("Enter the item Name: ");
+                    String itemName = scanner.next();
+                    System.out.print("Enter the item price: ");
+                    double itemPrice = scanner.nextDouble();
+                    System.out.print("Enter the item category: ");
+                    String itemCategory = scanner.next();
 
-                addItem(items,itemId,itemName,itemPrice,itemCategory);
-                break;
-            case 3:
-                removeItemById(items, 1);
-                break;
-            case 4:
-                System.out.println("The most expensive item " + getMostExpensiveItems(items) );;
-                break;
-            default:
-                System.out.println("Invalid choice");
-                break;
-        }
+                    addItem(items,itemId,itemName,itemPrice,itemCategory);
+
+                    System.out.println("Item added successfully");
+                    System.out.println("You now have " + items.size() + " item(s) in your inventory!");
+                    break;
+                case 3:
+                    removeItemById(items, 1);
+                    break;
+                case 4:
+                    System.out.println("\nThe most expensive item " + getMostExpensiveItems(items) );;
+                    break;
+                case 5:
+                    System.out.println("\nExit");
+                    System.out.println("The System Says Goodbye!");
+                default:
+                    System.out.println("\nInvalid choice");
+                    break;
+            }
+        } while(choice != 5);
 
         getAllItems(items);
     }
