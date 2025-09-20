@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -21,7 +22,15 @@ public class Main {
         System.out.println("5. Exit");
 
         System.out.print("\nPlease choose an option: ");
-        choice = scanner.nextInt();
+
+        try{
+            choice =  scanner.nextInt();
+        } catch(InputMismatchException e){
+            System.out.println("Invalid Input Type");
+            System.out.println("Please enter a valid option");
+        }
+
+        scanner.nextLine();
 
         switch(choice) {
             case 1:
