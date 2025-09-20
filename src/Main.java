@@ -14,8 +14,6 @@ public class Main {
     }
 
     public static void getAllItems(ArrayList<Item> items) {
-
-        System.out.println("\n A list of all items in the inventory");
         for (Item item : items) {
             System.out.println("\n" + item);
         }
@@ -55,6 +53,30 @@ public class Main {
         System.out.println("4. Get Most Expensive Item");
         System.out.println("5. Exit");
 
+        int choice = 1;
 
+        switch(choice) {
+            case 1:
+                if(items.isEmpty()) {
+                    System.out.println("There are no items in the inventory yet");
+                    System.out.println("Please add an item");
+                } else {
+                    System.out.println("\nA list of all items in the inventory");
+                    getAllItems(items);
+                }
+                break;
+            case 2:
+                addItem(items);
+                break;
+            case 3:
+                removeItemById(items, 1);
+                break;
+            case 4:
+                System.out.println("The most expensive item " + getMostExpensiveItems(items) );;
+                break;
+            default:
+                System.out.println("Invalid choice");
+                break;
+        }
     }
 }
