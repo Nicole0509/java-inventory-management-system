@@ -43,6 +43,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        int itemId;
 
         System.out.println("Welcome To Your Inventory Management System\n");
 
@@ -70,7 +71,7 @@ public class Main {
                 case 2:
                     System.out.println("\nPlease enter the item you want to add");
                     System.out.print("Enter the item ID: ");
-                    int itemId = scanner.nextInt();
+                    itemId = scanner.nextInt();
                     System.out.print("Enter the item Name: ");
                     String itemName = scanner.nextLine();
                     scanner.nextLine();
@@ -85,7 +86,8 @@ public class Main {
                     System.out.println("You now have " + items.size() + " item(s) in your inventory!");
                     break;
                 case 3:
-                    removeItemById(items, 1);
+                    itemId = scanner.nextInt();
+                    removeItemById(items, itemId);
                     break;
                 case 4:
                     if(items.isEmpty()) {
