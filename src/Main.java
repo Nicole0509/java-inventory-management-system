@@ -6,6 +6,13 @@ public class Main {
 
     static ArrayList<Item> items = new ArrayList<>();
 
+    public static void addItem(ArrayList<Item> items) {
+        items.add(new Item(1, "Lenovo", 10000, "Laptops"));
+        items.add(new Item(2,"HP", 3000,"Laptops"));
+        items.add(new Item(3,"Samsung", 5000,"Smartphones"));
+        items.add(new Item(4,"Galaxy", 11000,"Smartphones"));
+    }
+
     public static void getAllItems(ArrayList<Item> items) {
 
         System.out.println("\n A list of all items in the inventory");
@@ -41,10 +48,7 @@ public class Main {
 
         System.out.println("Welcome To Your Inventory Management System\n");
 
-        items.add(new Item(1, "Lenovo", 10000, "Laptops"));
-        items.add(new Item(2,"HP", 3000,"Laptops"));
-        items.add(new Item(3,"Samsung", 5000,"Smartphones"));
-        items.add(new Item(4,"Galaxy", 11000,"Smartphones"));
+        addItem(items);
 
         System.out.println("\nThe most expensive item is " + getMostExpensiveItems(items));
 
