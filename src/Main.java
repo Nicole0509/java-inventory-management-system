@@ -10,7 +10,9 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static int choice;
     static int itemId;
-
+    static String itemName;
+    static String itemCategory;
+    static double itemPrice;
 
     public static int switchMenu(int choice) {
 
@@ -42,7 +44,7 @@ public class Main {
             case 3:
                 if(items.isEmpty()){
 
-                    System.out.println("There are no Items in the Inventory");
+                    System.out.println("\nThere are no Items in the Inventory");
                     System.out.println("You have nothing to remove");
 
                 } else {
@@ -52,8 +54,8 @@ public class Main {
 
                     System.out.println(
                             (removeItemById(items, itemId) != null)
-                            ? "Successfully removed item with ID " + itemId
-                            : "No item with ID " + itemId + " was found in the inventory "
+                            ? "\nSuccessfully removed item with ID " + itemId
+                            : "\nNo item with ID " + itemId + " was found in the inventory "
                     );
 
                     System.out.println("You now have " + items.size() + " item(s) in your inventory!");
@@ -83,19 +85,55 @@ public class Main {
     public static void addItem(ArrayList<Item> items ) {
         System.out.println("\nPlease enter the item you want to add");
 
-        System.out.print("Enter the item ID: ");
-        itemId = scanner.nextInt();
-        scanner.nextLine();
+        do{
+            System.out.print("\nEnter the item ID: ");
+            try {
+                itemId = scanner.nextInt();
+                scanner.nextLine();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid Input Type. Please enter a number.");
+                scanner.nextLine();
+            }
+        } while(true);
 
-        System.out.print("Enter the item Name: ");
-        String itemName = scanner.nextLine();
+        // Inserting item price
 
-        System.out.print("Enter the item price: ");
-        double itemPrice = scanner.nextDouble();
-        scanner.nextLine();
+        do{
+            System.out.print("Enter the item Name: ");
+            itemName = scanner.nextLine().trim();
 
-        System.out.print("Enter the item category: ");
-        String itemCategory = scanner.next();
+            if(itemName.isEmpty()) {
+                System.out.println("\nItem name cannot be empty. Please enter a name.");
+            }
+        } while(itemName.trim().isEmpty());
+
+        // Inserting item price
+
+        do{
+            System.out.print("\nEnter the item price: ");
+            try {
+                itemPrice = scanner.nextDouble();
+                scanner.nextLine();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid Input Type. Please enter a number.");
+                scanner.nextLine();
+            }
+        } while(true);
+
+        // Inserting item category
+
+        do{
+            System.out.print("Enter the item category: ");
+            itemCategory = scanner.nextLine().trim();
+
+            if(itemCategory.isEmpty()) {
+                System.out.println("\nItem category cannot be empty. Please enter a category.");
+            }
+        } while(itemCategory.trim().isEmpty());
+
+        //calling the addItem method
 
         items.add(new Item(itemId,itemName, itemPrice,itemCategory));
 
