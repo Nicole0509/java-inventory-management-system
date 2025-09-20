@@ -72,7 +72,8 @@ public class Main {
                     System.out.print("Enter the item ID: ");
                     int itemId = scanner.nextInt();
                     System.out.print("Enter the item Name: ");
-                    String itemName = scanner.next();
+                    String itemName = scanner.nextLine();
+                    scanner.nextLine();
                     System.out.print("Enter the item price: ");
                     double itemPrice = scanner.nextDouble();
                     System.out.print("Enter the item category: ");
@@ -87,17 +88,22 @@ public class Main {
                     removeItemById(items, 1);
                     break;
                 case 4:
-                    System.out.println("\nThe most expensive item " + getMostExpensiveItems(items) );;
+                    if(items.isEmpty()) {
+                        System.out.println("\nThere are no items in the inventory yet");
+                        System.out.println("Please add an item");
+                    } else {
+                        System.out.println("\nThe most expensive item " + getMostExpensiveItems(items) );
+                    }
                     break;
                 case 5:
                     System.out.println("\nExit");
                     System.out.println("The System Says Goodbye!");
+                    break;
                 default:
                     System.out.println("\nInvalid choice");
                     break;
             }
         } while(choice != 5);
 
-        getAllItems(items);
     }
 }
