@@ -9,10 +9,6 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void addItem(ArrayList<Item> items, int itemId, String itemName, double itemPrice, String itemCategory ) {
-        items.add(new Item(1, "Lenovo", 10000, "Laptops"));
-        items.add(new Item(2,"HP", 3000,"Laptops"));
-        items.add(new Item(3,"Samsung", 5000,"Smartphones"));
-        items.add(new Item(4,"Galaxy", 11000,"Smartphones"));
         items.add(new Item(itemId,itemName, itemPrice,itemCategory));
     }
 
@@ -69,7 +65,17 @@ public class Main {
                 }
                 break;
             case 2:
-                addItem(items,5,"Ipad",58889,"Mobile Devices");
+                System.out.println("\nPlease enter the item you want to add");
+                System.out.print("Enter the item ID:");
+                int itemId = scanner.nextInt();
+                System.out.print("Enter the item Name:");
+                String itemName = scanner.next();
+                System.out.print("Enter the item price:");
+                double itemPrice = scanner.nextDouble();
+                System.out.print("Enter the item category:");
+                String itemCategory = scanner.next();
+
+                addItem(items,itemId,itemName,itemPrice,itemCategory);
                 break;
             case 3:
                 removeItemById(items, 1);

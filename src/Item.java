@@ -15,7 +15,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item " + itemId + " named " + itemName + " and costs " + NumberFormat.getCurrencyInstance().format(itemPrice) + ".\nIt belongs to the " + itemCategory + " category.";
+        return "Item " + itemId + " named " + itemName + ", costs " + NumberFormat.getCurrencyInstance().format(itemPrice) + ".\nIt belongs to the " + itemCategory + " category.";
     }
 
 }
