@@ -9,7 +9,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static int choice;
 
-    public static int SwithMenu(int choice) {
+    public static int switchMenu(int choice) {
         int itemId;
 
         System.out.println("\nMenu Options");
@@ -24,23 +24,22 @@ public class Main {
 
         switch(choice) {
             case 1:
-                if(items.isEmpty()) {
-                    System.out.println("\nThere are no items in the inventory yet");
-                    System.out.println("Please add an item");
-                } else {
-                    System.out.println("\nA list of all items in the inventory");
-                    getAllItems(items);
-                }
+                getAllItems(items);
                 break;
             case 2:
                 System.out.println("\nPlease enter the item you want to add");
+
                 System.out.print("Enter the item ID: ");
                 itemId = scanner.nextInt();
+                scanner.nextLine();
+
                 System.out.print("Enter the item Name: ");
                 String itemName = scanner.nextLine();
-                scanner.nextLine();
+
                 System.out.print("Enter the item price: ");
                 double itemPrice = scanner.nextDouble();
+                scanner.nextLine();
+
                 System.out.print("Enter the item category: ");
                 String itemCategory = scanner.next();
 
@@ -78,8 +77,15 @@ public class Main {
     }
 
     public static void getAllItems(ArrayList<Item> items) {
-        for (Item item : items) {
-            System.out.println("\n" + item);
+
+        if(items.isEmpty()) {
+            System.out.println("\nThere are no items in the inventory yet");
+            System.out.println("Please add an item");
+        } else {
+            System.out.println("\nA list of all items in the inventory");
+            for (Item item : items) {
+                System.out.println("\n" + item);
+            }
         }
     }
 
@@ -111,7 +117,7 @@ public class Main {
         System.out.println("Welcome To Your Inventory Management System\n");
 
         do{
-            choice = SwithMenu(choice);
+            choice = switchMenu(choice);
 
         } while(choice != 5);
 
