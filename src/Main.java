@@ -1,16 +1,19 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
     static ArrayList<Item> items = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
 
-    public static void addItem(ArrayList<Item> items) {
+    public static void addItem(ArrayList<Item> items, int itemId, String itemName, double itemPrice, String itemCategory ) {
         items.add(new Item(1, "Lenovo", 10000, "Laptops"));
         items.add(new Item(2,"HP", 3000,"Laptops"));
         items.add(new Item(3,"Samsung", 5000,"Smartphones"));
         items.add(new Item(4,"Galaxy", 11000,"Smartphones"));
+        items.add(new Item(itemId,itemName, itemPrice,itemCategory));
     }
 
     public static void getAllItems(ArrayList<Item> items) {
@@ -53,7 +56,7 @@ public class Main {
         System.out.println("4. Get Most Expensive Item");
         System.out.println("5. Exit");
 
-        int choice = 1;
+        int choice = 2;
 
         switch(choice) {
             case 1:
@@ -66,7 +69,7 @@ public class Main {
                 }
                 break;
             case 2:
-                addItem(items);
+                addItem(items,5,"Ipad",58889,"Mobile Devices");
                 break;
             case 3:
                 removeItemById(items, 1);
@@ -78,5 +81,7 @@ public class Main {
                 System.out.println("Invalid choice");
                 break;
         }
+
+        getAllItems(items);
     }
 }
