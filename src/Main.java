@@ -26,7 +26,14 @@ public class Main {
         return expensiveItem;
     }
 
-    public static Item removeItem(ArrayList<Item> items, int index) {
+    public static Item removeItemById(ArrayList<Item> items, int itemId) {
+        int index = -1;
+
+        for (Item item : items) {
+            if (item.itemId == itemId) {
+                index = items.indexOf(item);
+            }
+        }
         return items.remove(index);
     }
 
@@ -41,9 +48,10 @@ public class Main {
 
         System.out.println("\nThe most expensive item is " + getMostExpensiveItems(items));
 
-        System.out.println("\nRemoving " + removeItem(items,2));
-
         getAllItems(items);
 
+        System.out.println("\nRemoving " + removeItemById(items,2));
+
+        getAllItems(items);
     }
 }
