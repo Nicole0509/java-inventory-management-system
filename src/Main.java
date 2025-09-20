@@ -8,9 +8,10 @@ public class Main {
     static ArrayList<Item> items = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
     static int choice;
+    static int itemId;
+
 
     public static int switchMenu(int choice) {
-        int itemId;
 
         System.out.println("\nMenu Options");
         System.out.println("1. Get All Items");
@@ -27,26 +28,7 @@ public class Main {
                 getAllItems(items);
                 break;
             case 2:
-                System.out.println("\nPlease enter the item you want to add");
-
-                System.out.print("Enter the item ID: ");
-                itemId = scanner.nextInt();
-                scanner.nextLine();
-
-                System.out.print("Enter the item Name: ");
-                String itemName = scanner.nextLine();
-
-                System.out.print("Enter the item price: ");
-                double itemPrice = scanner.nextDouble();
-                scanner.nextLine();
-
-                System.out.print("Enter the item category: ");
-                String itemCategory = scanner.next();
-
-                addItem(items,itemId,itemName,itemPrice,itemCategory);
-
-                System.out.println("Item added successfully");
-                System.out.println("You now have " + items.size() + " item(s) in your inventory!");
+                addItem(items);
                 break;
             case 3:
                 itemId = scanner.nextInt();
@@ -72,8 +54,27 @@ public class Main {
         return choice;
     }
 
-    public static void addItem(ArrayList<Item> items, int itemId, String itemName, double itemPrice, String itemCategory ) {
+    public static void addItem(ArrayList<Item> items ) {
+        System.out.println("\nPlease enter the item you want to add");
+
+        System.out.print("Enter the item ID: ");
+        itemId = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter the item Name: ");
+        String itemName = scanner.nextLine();
+
+        System.out.print("Enter the item price: ");
+        double itemPrice = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.print("Enter the item category: ");
+        String itemCategory = scanner.next();
+
         items.add(new Item(itemId,itemName, itemPrice,itemCategory));
+
+        System.out.println("Item added successfully");
+        System.out.println("You now have " + items.size() + " item(s) in your inventory!");
     }
 
     public static void getAllItems(ArrayList<Item> items) {
