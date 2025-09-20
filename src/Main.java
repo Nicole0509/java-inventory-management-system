@@ -104,14 +104,14 @@ public class Main {
             itemName = scanner.nextLine().trim();
 
             if(itemName.isEmpty()) {
-                System.out.println("\nItem name cannot be empty. Please enter a name.");
+                System.out.println("Item name cannot be empty. Please enter a name.");
             }
         } while(itemName.trim().isEmpty());
 
         // Inserting item price
 
         do{
-            System.out.print("\nEnter the item price: ");
+            System.out.print("Enter the item price: ");
             try {
                 itemPrice = scanner.nextDouble();
                 scanner.nextLine();
